@@ -1,23 +1,21 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
-
-// Starting Application
 const app = express();
+const cors = require('cors');
+const dotenv = require('dotenv').config();
+const connection = require("./db")
+const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth');
 
-app.use(express.json()); 
+// database connection updated
+connection();
 
-// PORT definition
+// middlewares
+app.use(express.json())
+app.use(cors());
+
+//routes
+app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
+
 const PORT = process.env.PORT || 5000;
-
-// Importing Routes
-const ToDoItemRoute = require('./routes/toDoItems');
-
-// Connection with mongodb
-mongoose.connect(process.env.DB_CONNECT)
-.then(() => console.log("Database connected"))
-.catch(err => console.log(err))
-
-app.use('/', ToDoItemRoute);
-
-app.listen(PORT, () => console.log("Server connected"));
+app.listen(PORT, () => console.log(`Server connected on port ${PORT}`));
