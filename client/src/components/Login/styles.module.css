@@ -1,0 +1,95 @@
+.login_container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../../assets/layered-steps-haikei.svg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_form_container {
+    width: 400px;
+    height: 600px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_container h1 {
+    font-size: 40px;
+    margin-top: 0;
+}
+
+.input {
+    border: none;
+    outline: none;
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(41,182,246,0.05);
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.gender_input_container {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.gender_input {
+    margin: 0 8px;
+}
+
+.error_msg {
+    width: 300px;
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #f34646;
+    color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.blue_btn {
+    margin: 20px 0px;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    background-color: #29B6F6;
+    color: #ffffff;
+    border-radius: 20px;
+    width: 180px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blue_btn:hover {
+    background-color: #0D47A1;
+    transition: 0.3s;
+}
+
+.link {
+    text-decoration: none;
+    color: #29B6F6;
+    margin-left: 4px;
+}
+
+.link:hover {
+    color: #0D47A1;
+    transition: 0.3s;
+}
