@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom'; 
 import { useState } from 'react';
 import axios from 'axios';
@@ -51,17 +50,20 @@ const Signup = () => {
                         required
                         className={styles.input}
                     />
-                    <input
-                        type='text'
-                        placeholder='Gender'
-                        name='gender'
-                        onChange={handleChange}
-                        value={data.gender}
-                        required
-                        className={styles.input}
-                    />
+                    
+                    <tr className={styles.gender_input_container}>
+                        <td className={styles.gender_title}>Gender:</td>
+                        <td>
+                            <label className={styles.gender_input}><input type="radio" name="gender" onChange={handleChange} value={data.gender} required />Male</label>
+                            <label className={styles.gender_input}><input type="radio" name="gender" onChange={handleChange} value={data.gender} />Female</label>
+                            <label className={styles.gender_input}><input type="radio" name="gender" onChange={handleChange} value={data.gender} />Other</label>
+                        </td>
+                    </tr>
+
                     <input
                         type='number'
+                        min='0'
+                        max='120'
                         placeholder='Age'
                         name='age'
                         onChange={handleChange}
@@ -92,9 +94,9 @@ const Signup = () => {
                         Sign Up
                     </button>
 
-                    <p>Have already an Account? 
+                    <p>Have already an Account?
                         <Link to="/login">
-                            <a className='link'>Login Here</a>
+                            <a className={styles.link}>Login Here</a>
                         </Link>
                     </p>
                 </form>

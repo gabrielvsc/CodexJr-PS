@@ -53,7 +53,7 @@
 }
 
 .blue_btn {
-    margin-top: 20px;
+    margin: 20px 0px;
     border: none;
     outline: none;
     padding: 12px 0;
@@ -64,4 +64,21 @@
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.blue_btn:hover {
+    background-color: #0D47A1;
+    transition: 0.3s;
+}
+
+.link {
+    text-decoration: none;
+    color: #29B6F6;
+    margin-left: 4px;
+}
+
+.link:hover {
+    color: #0D47A1;
+    transition: 0.3s;
 }
