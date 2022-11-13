@@ -4,23 +4,23 @@ import axios from 'axios';
 
 import styles from './styles.module.css';
 
-const Signup = () => {
+const Login = () => {
     const[data, setData] = useState ({
         email: "",
         password: ""
     });
 
-    const [ error, setError ] = useState("");
+    const [error, setError] = useState("");
 
     const handleChange = ({ currentTarget: input }) => {
-        setData({...data, [input.name]:input.value });
+        setData({...data, [input.name]: input.value });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const url = "http://localhost:8080/api/auth";
-            const {data: res} = await axios.post(url, data)
+            const { data: res } = await axios.post(url, data);
             localStorage.setItem("token", res.data);
             window.location = "/"
 
@@ -71,4 +71,4 @@ const Signup = () => {
     )
 };
 
-export default Signup;
+export default Login;

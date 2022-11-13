@@ -17,15 +17,15 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const handleChange = ({ currentTarget: input }) => {
-        setData({...data, [input.name]:input.value });
+        setData({...data, [input.name]: input.value });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const url = "http://localhost:8080/api/users";
-            const {data: res} = await axios.post(url, data)
-            navigate("/login")
+            const { data: res } = await axios.post(url, data)
+            navigate("/login");
             console.log(res.message);
 
         } catch(error) {
@@ -51,15 +51,26 @@ const Signup = () => {
                         className={styles.input}
                     />
                     
+                    <input
+                        type='text'
+                        placeholder='Gender'
+                        name='gender'
+                        onChange={handleChange}
+                        value={data.gender}
+                        required
+                        className={styles.input}
+                    />
+
+                    {/*  
                     <tr className={styles.gender_input_container}>
                         <td className={styles.gender_title}>Gender:</td>
                         <td>
-                            <label className={styles.gender_input}><input type="radio" name="gender" onChange={handleChange} value={data.gender} required />Male</label>
-                            <label className={styles.gender_input}><input type="radio" name="gender" onChange={handleChange} value={data.gender} />Female</label>
-                            <label className={styles.gender_input}><input type="radio" name="gender" onChange={handleChange} value={data.gender} />Other</label>
+                            <label className={styles.gender_input}><input type="radio" name="male" onChange={handleChange} value={data.gender} required />Male</label>
+                            <label className={styles.gender_input}><input type="radio" name="female" onChange={handleChange} value={data.gender} />Female</label>
+                            <label className={styles.gender_input}><input type="radio" name="other" onChange={handleChange} value={data.gender} />Other</label>
                         </td>
                     </tr>
-
+                    */}
                     <input
                         type='number'
                         min='0'
