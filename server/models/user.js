@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 // Generate token with jwt
 userSchema.methods.generateAuthToken = function () {
     const token = jwt.sign({_id:this._id}, process.env.JWTPRIVATEKEY, {expiresIn: "7d"})
-    return token
+    return token;
 };
 
 // Creating User
@@ -30,8 +30,8 @@ const validate = (data) => {
         email: Joi.string().email().required().label("Email"),
         password: passwordComplexity().required().label("Password")
     });
-
-    return schema.validate(data)
+    
+    return schema.validate(data);
 };
 
 // Export
