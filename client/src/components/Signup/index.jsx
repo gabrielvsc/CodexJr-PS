@@ -71,6 +71,7 @@ const Signup = () => {
                         </td>
                     </tr>
                     */}
+                    
                     <input
                         type='number'
                         min='0'
