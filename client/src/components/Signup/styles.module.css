@@ -41,6 +41,26 @@
     font-size: 14px;
 }
 
+.input:focus {
+    border: 1px solid #29B6F6;
+}
+
+
+.input_gender {
+    border: none;
+    outline: none;
+    width: 330px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(41,182,246,0.05);
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.input_gender:focus {
+    border: 1px solid #29B6F6;
+}
+
 .error_msg {
     width: 300px;
     padding: 15px;
@@ -70,6 +90,10 @@
 .blue_btn:hover {
     background-color: #0D47A1;
     transition: 0.3s;
+}
+
+.blue_btn:focus {
+    border: 1px solid #0D47A1;
 }
 
 .link {

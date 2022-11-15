@@ -41,6 +41,10 @@
     font-size: 14px;
 }
 
+.input:focus {
+    border: 1px solid #29B6F6;
+}
+
 .gender_input_container {
     width: 300px;
     display: flex;
@@ -81,6 +85,10 @@
 .blue_btn:hover {
     background-color: #0D47A1;
     transition: 0.3s;
+}
+
+.blue_btn:focus {
+    border: 1px solid #0D47A1;
 }
 
 .link {

@@ -50,28 +50,21 @@ const Signup = () => {
                         required
                         className={styles.input}
                     />
-                    
-                    <input
-                        type='text'
+
+                    <select 
+                        type="text"
                         placeholder='Gender'
                         name='gender'
                         onChange={handleChange}
                         value={data.gender}
                         required
-                        className={styles.input}
-                    />
-
-                    {/*  
-                    <tr className={styles.gender_input_container}>
-                        <td className={styles.gender_title}>Gender:</td>
-                        <td>
-                            <label className={styles.gender_input}><input type="radio" name="male" onChange={handleChange} value={data.gender} required />Male</label>
-                            <label className={styles.gender_input}><input type="radio" name="female" onChange={handleChange} value={data.gender} />Female</label>
-                            <label className={styles.gender_input}><input type="radio" name="other" onChange={handleChange} value={data.gender} />Other</label>
-                        </td>
-                    </tr>
-                    */}
-                    
+                        className={styles.input_gender}>
+                            <option value="" disabled selected>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-Binary">Non-Binary</option>
+                            <option value="Other">Other</option>
+                    </select> 
                     <input
                         type='number'
                         min='0'
