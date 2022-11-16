@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     gender: {type: String, required: true},
     age: {type: Number, required: true},
     email: {type: String, required: true},
-    password: {type: String, required: true}
+    password: {type: String, required: true, select: false}
 });
 
 // Generate token with jwt
