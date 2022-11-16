@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require("../models/user");
-const Joi = require('Joi');
+const Joi = require('joi');
 const bcrypt = require('bcrypt');
 
 router.post("/", async (req, res) => {
@@ -9,7 +9,8 @@ router.post("/", async (req, res) => {
         if (error)
             return res.status(400).send({ message: error.details[0].message });
 
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ email: req.body.email }).select('+password');
+        
         if(!user)
             return res.status(401).send({ message: "Invalid Email or Password" })
 
