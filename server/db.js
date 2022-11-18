@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 module.exports = () => {
     const connectionParams = {
+        autoIndex: false,
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        minPoolSize: 10
     };
     try {
         mongoose.connect(process.env.DB_CONNECT, connectionParams);

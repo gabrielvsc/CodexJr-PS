@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 
-// Creating the Schema to our db
+// Creating task item Schema
 const ToDoItemSchema = new mongoose.Schema({
     item:{
         type:String,
-        required: true
+        required: true,
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user"
     }
 })
 

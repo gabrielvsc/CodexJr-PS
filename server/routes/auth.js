@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require("../models/user");
-const Joi = require('Joi');
+const Joi = require('joi');
 const bcrypt = require('bcrypt');
 
 router.post("/", async (req, res) => {
@@ -9,7 +9,9 @@ router.post("/", async (req, res) => {
         if (error)
             return res.status(400).send({ message: error.details[0].message });
 
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ email: req.body.email }).select('+password');
+        const userId = user._id;
+
         if(!user)
             return res.status(401).send({ message: "Invalid Email or Password" })
 
@@ -22,7 +24,8 @@ router.post("/", async (req, res) => {
             return res.status(401).send({ message: "Invalid Email or Password" });
         
         const token = user.generateAuthToken();
-        res.status(200).send( {data: token, message: "Logged in successfully" })
+        res.status(200).send( {data: {"id": userId}, message: "Logged in successfully" })
+        
     } catch(error) {
         res.status(500).send({ message: "Internal Server Error" })
     }
