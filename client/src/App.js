@@ -108,6 +108,7 @@ function App() {
                 <p className='item-content'>{item.item}</p>
                 <button className='update-item' onClick={() => {setIsUpdating(item._id)}}>Update</button>
                 <button className='delete-item' onClick={() => {deleteItem(item._id)}}>Delete</button>
+                <button className='complete-item' onClick={() => {deleteItem(item._id)}}>Complete</button>
               </>
           }
         </div>
