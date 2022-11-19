@@ -4,7 +4,6 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { set } from 'mongoose';
 
 function App() {
   const user = localStorage.getItem("token")
@@ -12,15 +11,19 @@ function App() {
   const [itemText, setItemText] = useState('');
   const [listItems, setListItems] = useState([]);
   const [isUpdating, setIsUpdating] = useState('');
-  cosnt [updateItemText, setUpdateItemText] = useState('');
+  const [updateItemText, setUpdateItemText] = useState('');
 
 
   //adiciona novo item para a database
   //TODO - adicionar relação com ID do usuario
-  const addItem = async () => {
+  const addItem = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8080/api/item', { item: itemText });
+      const userId = localStorage.getItem("token");
+        if (!userId) return
+        const { id } = JSON.parse(userId);
+
+      const res = await axios.post('http://localhost:8080/api/item', { item: itemText , userId: id});
       setListItems(prev => [...prev, res.data]);
       setItemText('');
     } catch (error) {
@@ -28,11 +31,15 @@ function App() {
     }
   }
 
-  //Create function to tecth all todo items from database - use useEffect hook
+  //Create function to fetch all todo items from database - use useEffect hook
   //TODO - implementar relação com id do usuario
   useEffect(() => {
     const getItemList = async () => {
       try {
+        const userId = localStorage.getItem("token");
+        if (!userId) return
+        const {id} = JSON.parse(userId);
+
         const res = await axios.get(`http://localhost:8080/api/item/${id}`)
         setListItems(res.data);
       } catch (error) {
@@ -56,8 +63,10 @@ function App() {
 
   //Update Item
   const updateItem = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
+      const id = isUpdating;
+
       const res = await axios.put(`http://localhost:8080/api/item/${id}`, {item: updateItemText});
       console.log(res.data);
       const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating);
@@ -70,12 +79,12 @@ function App() {
   }
 
   //befora updating we need to show input field where we will creat our update item
-  const renderUpdateForm = () => {
-    <form className='update-form' onSubmit={(e) => {updateItem(e)}}>
-      <input className='update-new-input' type="text" placeholder="New Item" onChange={e =>{setUpdateItemText(e.target.value)}} value={updateItemText}/>
-      <button className='update-new-btn' type='submit'>update</button>
-    </form>
-  }
+  // const UpdateForm = () => (
+  //   <form className='update-form' onSubmit={(e) => {updateItem(e)}}>
+  //     <input className='update-new-input' type="text" placeholder="New Item" onChange={e => setUpdateItemText(e.target.value)} value={updateItemText}/>
+  //     <button className='update-new-btn' type='submit'>Update</button>
+  //   </form>
+  // )
 
 
   return (
@@ -88,14 +97,17 @@ function App() {
       <div className='todo-listItems'>
         {
           listItems.map(item => (
-        <div className='todo-item'>
+        <div className='todo-item' key={ item._id }>
           {
             isUpdating === item._id
-            ? renderUpdateForm()
+            ? <form className='update-form' onSubmit={(e) => {updateItem(e)}}>
+            <input className='update-new-input' type="text" placeholder="New Item" onChange={e => setUpdateItemText(e.target.value)} value={updateItemText}/>
+            <button className='update-new-btn' type='submit'>Update</button>
+          </form>
             : <>
                 <p className='item-content'>{item.item}</p>
-                <button className='update-item' onClick={() => {setIsUpdating(item._id)}}>uppdate</button>
-                <button className='delete-item' onClick={() => {deleteItem(item._id)}}>Delete</button>7
+                <button className='update-item' onClick={() => {setIsUpdating(item._id)}}>Update</button>
+                <button className='delete-item' onClick={() => {deleteItem(item._id)}}>Delete</button>
               </>
           }
         </div>
