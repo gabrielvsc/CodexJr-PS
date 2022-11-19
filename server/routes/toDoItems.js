@@ -12,7 +12,7 @@ router.post('/', async (req, res)=>{ // [!] 'async' is important, if you get an 
 
         //save this item in database
         const saveItem = await newItem.save();
-        res.status(200).json('Item Added Successfully.');
+        res.status(200).json(saveItem);
     }catch (err){
         res.status(500).json(err);
     }

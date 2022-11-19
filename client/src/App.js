@@ -73,7 +73,7 @@ function App() {
   const renderUpdateForm = () => {
     <form className='update-form' onSubmit={(e) => {updateItem(e)}}>
       <input className='update-new-input' type="text" placeholder="New Item" onChange={e =>{setUpdateItemText(e.target.value)}} value={updateItemText}/>
-      <<button className='update-new-btn' type='submit'>update</button>
+      <button className='update-new-btn' type='submit'>update</button>
     </form>
   }
 
