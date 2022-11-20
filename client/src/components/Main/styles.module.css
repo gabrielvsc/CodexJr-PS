@@ -1,4 +1,11 @@
+.main_container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
 .navbar {
+    position: fixed;
     width: 200px;
     height: 100vh;
     background-color: #29B6F6;
@@ -6,28 +13,43 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .user_photo {
-    background-color: #ffffff;
+    margin: 20px 5px;
     width: 100px;
     height: 100px;
     border-radius: 50px;
-    margin: 20px 5px;
+
+    color: #FFFFFF;
+    padding: 0;
 }
 
 .white_btn {
     width: 50px;
     height: 50px;
+    margin: 20px 5px;
+    border-radius: 25px;
     border: none;
     outline: none;
-
+    background-color: #FFFFFF;
     cursor: pointer;
 
-    margin: 20px 5px;
+    transition: all 0.2s;
+}
+
+.white_btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .logout_icon {
-    background-image: url(../../assets/icons/bx-log-out.svg);
-    background-repeat: no-repeat;
+    font-size: 36px;
+}
+
+
+.task_container {
+    margin-left: 200px;
+    width: calc(100vw - 300px);
 }
