@@ -1,0 +1,157 @@
+.task_container {
+    height: 80vh;
+    width: 100%;
+    min-width: 300px;
+    margin: 20px;
+    
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.form_container input {
+    border: none;
+    outline: none;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(41,182,246,0.05);
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.form_container button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+
+    margin: 20px 0px;
+    border: none;
+    outline: none;
+    background-color: #29B6F6;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form_container button:hover {
+    background-color: #0D47A1;
+}
+
+.todo_item {
+    min-width: 300px;
+    max-width: calc(100vw - 400px);
+    margin-bottom: 20px;
+    padding: 20px;
+
+    display: flex;
+    min-width: 400px;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+
+    justify-content: space-between;
+}
+
+
+.checkbox_text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item_content {
+    align-items: center;
+    margin: 10px;
+}
+
+.item_buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item_buttons button {
+    margin: 5px;
+    border: none;
+    outline: none;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+
+    cursor: pointer;
+}
+
+.delet_button {
+    background-color: #fc4c4c;
+    transition: all 0.2s;
+}
+
+.delet_button:hover {
+    background-color: #ca3d3d;
+    cursor: pointer;
+}
+
+.update_button {
+    background-color: #FCC43B;
+    transition: all 0.2s;
+}
+
+.update_button:hover {
+    background-color: #e7b536;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+BsTrash {
+    color: #ffffff;
+}
+
+.update_form input {
+    border: none;
+    outline: none;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(41,182,246,0.05);
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.update_form button {
+    margin: 5px;
+    border: none;
+    outline: none;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+
+    cursor: pointer;
+}

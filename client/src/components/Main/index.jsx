@@ -1,4 +1,7 @@
+import Task from '../Task';
 import styles from './styles.module.css';
+import { BiLogOut } from 'react-icons/bi';
+import { FaUserCircle } from 'react-icons/fa'
 
 const Main = () => {
     const handleLogout = () => {
@@ -8,12 +11,18 @@ const Main = () => {
 
     return (
         <div className={styles.main_container}>
-            <nav className={styles.navbar} >
-                <div className={styles.user_photo}></div>
+            <nav className={styles.navbar}>
+                <div>
+                    <FaUserCircle className={styles.user_photo}/>
+                </div>
+                
                 <button className={styles.white_btn} onClick={handleLogout}>
-                    <span className={styles.logout_icon}></span>
+                    <BiLogOut className={styles.logout_icon}/>
                 </button>
             </nav>
+            <div className={styles.task_container}>
+                <Task/>
+            </div>
         </div>
     )
 };
